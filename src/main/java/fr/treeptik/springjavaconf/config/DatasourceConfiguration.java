@@ -9,7 +9,6 @@ import org.hibernate.ejb.HibernatePersistence;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.SimpleDriverDataSource;
-import org.springframework.orm.hibernate4.HibernateExceptionTranslator;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -30,7 +29,7 @@ public class DatasourceConfiguration {
 		Driver driver = new Driver();
 		driver.acceptsURL("com.mysql.jdbc.Driver");
 		config.setDriver(driver);
-		config.setUrl("jdbc:mysql://localhost:3306/jpasample");
+		config.setUrl("jdbc:mysql://localhost:3306/fulljava");
 		config.setUsername("root");
 		config.setPassword("root");
 		return config;
@@ -66,10 +65,10 @@ public class DatasourceConfiguration {
 		jpaVendorAdapter.setGenerateDdl(true);
 		return jpaVendorAdapter;
 	}
-
-	@Bean
-	public HibernateExceptionTranslator hibernateExceptionTranslator() {
-		return new HibernateExceptionTranslator();
-	}
+//
+//	@Bean
+//	public HibernateExceptionTranslator hibernateExceptionTranslator() {
+//		return new HibernateExceptionTranslator();
+//	}
 
 }
